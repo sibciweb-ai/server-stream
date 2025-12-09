@@ -1,0 +1,63 @@
+<icecast>
+    <location>Guárico, Venezuela</location>
+    <admin>contacto@ramirezicode.com.ve</admin>
+
+    <limits>
+        <clients>100</clients>
+        <sources>2</sources>
+        <queue-size>524288</queue-size>
+        <client-timeout>30</client-timeout>
+        <header-timeout>15</header-timeout>
+        <source-timeout>10</source-timeout>
+        <burst-on-connect>1</burst-on-connect>
+        <burst-size>65535</burst-size>
+    </limits>
+
+    <authentication>
+        <source-password>4dm1n!</source-password>
+        <relay-password>r3l4y2024</relay-password>
+        <admin-user>admin</admin-user>
+        <admin-password>4dm1n!</admin-password>
+    </authentication>
+
+    <hostname>radio-cantaguarico.sibciguarico.ol</hostname>
+
+    <listen-socket>
+        <port>8000</port>
+    </listen-socket>
+
+    <mount type="normal">
+        <mount-name>/cantaguarico</mount-name>
+        <username>source</username>
+        <password>4dm1n!</password>
+        <max-listeners>100</max-listeners>
+        <public>1</public>
+        <stream-name>Radio Cantaguarico</stream-name>
+        <stream-description>La voz de Guárico</stream-description>
+        <stream-url>https://radio-cantaguarico.ramirezicode.com.ve</stream-url>
+        <genre>Variado</genre>
+        <bitrate>128</bitrate>
+        <type>audio/mpeg</type>
+    </mount>
+
+    <fileserve>1</fileserve>
+
+    <paths>
+        <basedir>/usr/share/icecast</basedir>
+        <logdir>/var/log/icecast2</logdir>
+        <webroot>/usr/share/icecast/web</webroot>
+        <adminroot>/usr/share/icecast/admin</adminroot>
+        <alias source="/" destination="/status.xsl"/>
+    </paths>
+
+    <logging>
+        <accesslog>access.log</accesslog>
+        <errorlog>error.log</errorlog>
+        <loglevel>3</loglevel>
+        <logsize>10000</logsize>
+    </logging>
+
+    <security>
+        <chroot>0</chroot>
+    </security>
+</icecast>

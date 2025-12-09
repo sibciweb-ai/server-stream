@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  icecast:
+    image: infiniteproject/icecast:latest
+    container_name: cantaguarico-server
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./config/icecast.xml:/etc/icecast.xml:ro
+      - ./logs:/var/log/icecast2
+    user: "1000:1000"
