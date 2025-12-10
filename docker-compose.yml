@@ -11,3 +11,15 @@ services:
       - ./config/icecast.xml:/etc/icecast.xml:ro
       - ./logs:/var/log/icecast2
     user: "1000:1000"
+
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    container_name: uptime-kuma
+    restart: always
+    ports:
+      - "3010:3001"
+    volumes:
+      - uptime-kuma-data:/app/data
+
+volumes:
+  uptime-kuma-data:
