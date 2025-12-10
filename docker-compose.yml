@@ -12,14 +12,15 @@ services:
       - ./logs:/var/log/icecast2
     user: "1000:1000"
 
-  uptime-kuma:
-    image: louislam/uptime-kuma:1
-    container_name: uptime-kuma
+  monitor:
+    build: ./monitor
+    container_name: cantaguarico-monitor
     restart: always
-    ports:
-      - "3010:3001"
-    volumes:
-      - uptime-kuma-data:/app/data
-
-volumes:
-  uptime-kuma-data:
+    environment:
+      - ICECAST_URL=http://icecast:8000/status-json.xsl
+      - TELEGRAM_BOT_TOKEN=8442260188:AAGSt3aSvEj-rzaMOcENu2Zal226IrDNK9Q
+      - TELEGRAM_CHAT_ID=4906781120
+      - CHECK_INTERVAL=5
+      - MOUNT_POINT=/cantaguarico
+    depends_on:
+      - icecast
