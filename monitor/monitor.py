@@ -80,7 +80,7 @@ def main():
     status_text = "ONLINE" if last_status else "OFFLINE"
     logging.info(f"Initial Status: {status_text}")
     
-    # Optional: Send a startup message? Maybe too noisy.
+    send_telegram_alert(f"🤖 **Guardian Bot Iniciado**\nEstado actual: {status_text}")
     
     while True:
         time.sleep(CHECK_INTERVAL)
